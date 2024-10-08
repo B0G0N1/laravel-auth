@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
+use App\Http\Controllers\Controller;
 
 class ProjectController extends Controller
 {
@@ -14,8 +18,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $projects = Project::all();
+        return view('admin.projects.index', compact('projects'));
+    }    
 
     /**
      * Show the form for creating a new resource.
