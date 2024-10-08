@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
-
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
@@ -29,18 +28,30 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreProjectRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        //
+        // Ottengo i dati validati dal form
+        $form_data = $request->validated();
+
+        // Genero lo slug usando il metodo generateSlug dal modello Project
+        $form_data['slug'] = Project::generateslug($form_data['title']);
+
+        // Creo un nuovo progetto
+        $project = new Project();
+        $project->fill($form_data);
+        $project->save();
+
+        // Reindirizzo alla pagina dei progetti
+        return redirect()->route('admin.projects.index');
     }
 
     /**
@@ -62,19 +73,29 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UpdateProjectRequest  $request
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        // Ottengo i dati validati dal form
+        $form_data = $request->validated();
+
+        // Genero lo slug se necessario
+        $form_data['slug'] = Project::generateslug($form_data['title']);
+
+        // Aggiorno il progetto
+        $project->update($form_data);
+
+        // Reindirizzo alla pagina dei progetti
+        return redirect()->route('admin.projects.index');
     }
 
     /**
@@ -85,6 +106,10 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        // Cancella il progetto
+        $project->delete();
+
+        // Reindirizza alla lista dei progetti
+        return redirect()->route('admin.projects.index');
     }
 }

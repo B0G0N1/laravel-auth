@@ -2,11 +2,17 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-between align-items-center mb-4">
+            <div class="col-6">
                 <h2>Elenco progetti</h2>
             </div>
+            <div class="col-6 text-end">
+                <a href="{{ route('admin.projects.create') }}" class="btn btn-success">
+                    <i class="fas fa-plus"></i> New Project
+                </a>
+            </div>
         </div>
+
         <div class="col-12">
             <table class="table table-striped">
                 <thead>
