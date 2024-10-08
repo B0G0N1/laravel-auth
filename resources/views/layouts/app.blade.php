@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel Boolfolio') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,20 +23,7 @@
         @include('partials.header')
 
         <main class="d-flex">
-            <div id="sidebar" class="bg-dark p-3">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav text-white">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/') }}">{{ __('Home') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/dashboard') }}">{{ __('Dashboard') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/profile') }}">{{ __('Profile') }}</a>
-                    </li>
-                </ul>
-            </div>
+            @include('partials.sidebar')
             <div id="content" class="flex-grow-1 p-3">
                 @yield('content')
             </div>

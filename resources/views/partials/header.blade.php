@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo">
-                    <img src="{{ asset('img/github.jpg') }}" alt="Logo" style="height: 40px;">
+                    <img src="{{ asset('img/github.jpg') }}" alt="Logo">
                 </div>
             </a>
 
@@ -14,6 +14,15 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Left Side Of Navbar -->
+                <div id="sidebar" class="bg-dark p-3">
+                    <ul class="navbar-nav me-auto text-white">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        </li>
+                    </ul> <!-- Aggiunta la chiusura ul qui -->
+                </div>
+
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
                     @guest
@@ -32,8 +41,9 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-light" href="{{ url('dashboard') }}">{{ __('Dashboard') }}</a>
+                            <div class="dropdown-menu dropdown-menu-end bg-dark" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-light"
+                                    href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }}</a>
                                 <a class="dropdown-item text-light" href="{{ url('profile') }}">{{ __('Profile') }}</a>
                                 <a class="dropdown-item text-light" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
