@@ -32,6 +32,7 @@ class UpdateProjectRequest extends FormRequest
             ],
             'description' => 'required|string', // La descrizione è obbligatoria
             'url' => 'nullable|url', // L'URL è opzionale ma deve essere valido
+            'image' => 'nullable|image|max:4096', // Il file è facoltativo  ma deve essere un immagine massimo di 4MB
         ];
     }
 
@@ -51,6 +52,9 @@ class UpdateProjectRequest extends FormRequest
             'description.string' => 'La descrizione deve essere una stringa.',
             
             'url.url' => "L'URL deve essere valido.",
+
+            'image.image' => "Devi caricare un immagine",
+            'image.max' => "L'immagine deve pesare massimo 4mb",
         ];
     }
 }
