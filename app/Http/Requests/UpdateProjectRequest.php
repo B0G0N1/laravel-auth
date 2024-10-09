@@ -28,10 +28,10 @@ class UpdateProjectRequest extends FormRequest
             'title' => [
                 'required',
                 Rule::unique('projects')->ignore($this->project), // Ignora il record attuale nel controllo di unicità
-                'max:255',
+                'max:255', // Il titolo non può superare i 255 caratteri
             ],
-            'description' => 'required|string',
-            'url' => 'nullable|url',
+            'description' => 'required|string', // La descrizione è obbligatoria
+            'url' => 'nullable|url', // L'URL è opzionale ma deve essere valido
         ];
     }
 

@@ -45,7 +45,7 @@ class ProjectController extends Controller
         // Genero lo slug usando il metodo generateSlug dal modello Project
         $form_data['slug'] = Project::generateslug($form_data['title']);
 
-        // Creo un nuovo progetto
+        // Creo un nuovo progetto e lo salvo
         $project = new Project();
         $project->fill($form_data);
         $project->save();
@@ -91,7 +91,7 @@ class ProjectController extends Controller
         // Genero lo slug se necessario
         $form_data['slug'] = Project::generateslug($form_data['title']);
 
-        // Aggiorno il progetto
+        // Aggiorno il progetto con i nuovi dati
         $project->update($form_data);
 
         // Reindirizzo alla pagina dei progetti

@@ -14,18 +14,18 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Usando Vite -->
+    <!-- Usando Vite per caricare il file app.js -->
     @vite(['resources/js/app.js'])
 </head>
 
 <body>
     <div id="app">
-        @include('partials.header')
+        @include('partials.header') <!-- Includo l'header -->
 
         <main class="d-flex">
-            @include('partials.sidebar')
+            @include('partials.sidebar') <!-- Includo la sidebar -->
             <div id="content" class="flex-grow-1 p-3">
-                @yield('content')
+                @yield('content') <!-- Sezione per il contenuto della pagina -->
             </div>
         </main>
     </div>

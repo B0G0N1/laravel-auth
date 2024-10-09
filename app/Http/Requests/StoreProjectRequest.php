@@ -30,8 +30,8 @@ class StoreProjectRequest extends FormRequest
                 Rule::unique('projects')->ignore($this->project), // Ignora il record attuale nel controllo di unicità
                 'max:255',
             ],
-            'description' => 'required|string',
-            'url' => 'nullable|url',
+            'description' => 'required|string', // La descrizione è obbligatoria
+            'url' => 'nullable|url', // L'URL è facoltativo ma deve essere valido se presente
         ];
     }
 

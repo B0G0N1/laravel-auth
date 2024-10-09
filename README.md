@@ -1,5 +1,5 @@
 <!-------------------------
-    CONSEGNA ESERCIZIO
+    CONSEGNA ESERCIZIO 1
 -------------------------->
 
 Esercizio di oggi: Laravel Boolfolio - Base
@@ -13,6 +13,14 @@ Per la parte di back-office creiamo un resource controller Admin\\ProjectControl
 Fate le crud viste a lezione: index, show, create e store
 Bonus
 Implementiamo la validazione dei dati dei Progetti nelle operazioni CRUD che lo richiedono usando due form requests.
+Buon lavoro
+
+<!-------------------------
+    CONSEGNA ESERCIZIO 2
+-------------------------->
+
+Ciao a tutti, continuate con la repo aperta ieri realizzando le CRUD mancanti, ovvero edit, update e destroy. Per la destroy è richiesta obbligatoriamente la richiesta di conferma di cancellazione, scegliete voi come farla se con la confirm o con la modale di bootstrap.
+Bonus: realizzate la validazione dei campi anche per l'edit
 Buon lavoro
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>

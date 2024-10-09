@@ -7,6 +7,7 @@
                 <div class="card shadow-sm mb-4">
                     <div class="card-header bg-dark text-white d-flex align-items-center justify-content-between">
                         <h2 class="mb-0">Create New Project</h2>
+                        <!-- Link per tornare alla lista dei progetti -->
                         <a href="{{ route('admin.projects.index') }}" class="btn btn-light">Back to Projects</a>
                     </div>
                     <div class="card-body">
@@ -23,7 +24,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Campo per lo slug del progetto (disabilitato e generato automaticamente) -->
+                            <!-- Slug generato automaticamente (disabilitato) -->
                             <div class="mb-3">
                                 <label for="slug" class="form-label">Slug</label>
                                 <input type="text" class="form-control" id="slug" name="slug"
@@ -50,7 +51,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Pulsante per inviare il form -->
+                            <!-- Pulsante per creare il progetto -->
                             <button type="submit" class="btn btn-primary">Create Project</button>
                         </form>
                     </div>

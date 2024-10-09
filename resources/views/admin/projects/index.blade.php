@@ -7,6 +7,7 @@
                 <h2>Elenco progetti</h2>
             </div>
             <div class="col-6 text-end">
+                <!-- Pulsante per creare un nuovo progetto -->
                 <a href="{{ route('admin.projects.create') }}" class="btn btn-success">
                     <i class="fas fa-plus"></i> New Project
                 </a>
@@ -35,14 +36,17 @@
                             <td>{{ $project->slug }}</td>
                             <td>
                                 <div class="d-flex gap-1">
+                                    <!-- Pulsante per visualizzare il progetto -->
                                     <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
                                         class="btn btn-sm btn-primary">
                                         <i class="fas fa-eye"></i>
                                     </a>
+                                    <!-- Pulsante per modificare il progetto -->
                                     <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
                                         class="btn btn-sm btn-warning">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    <!-- Form per eliminare il progetto -->
                                     <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
                                         method="POST">
                                         @csrf
@@ -59,5 +63,6 @@
             </table>
         </div>
     </div>
+    <!-- Modale per la conferma dell'eliminazione -->
     @include('admin.projects.partials.modal_delete')
 @endsection
