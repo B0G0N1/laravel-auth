@@ -23,6 +23,16 @@ Ciao a tutti, continuate con la repo aperta ieri realizzando le CRUD mancanti, o
 Bonus: realizzate la validazione dei campi anche per l'edit
 Buon lavoro
 
+<!-------------------------
+    CONSEGNA ESERCIZIO 3
+-------------------------->
+
+Esercizio di oggi: Laravel Boolfolio - Cover Image
+nome repo: laravel-auth
+Ciao ragazzi, continuiamo a lavorare nella repo dei giorni scorsi e aggiungiamo un’immagine ai nostri progetti.
+Ricordiamoci di creare il symlink con l’apposito comando artisan e di aggiungere l’attributo enctype="multipart/form-data" ai form di creazione e di modifica!
+Buon lavoro e buon divertimento!
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">

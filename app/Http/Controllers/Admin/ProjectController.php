@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -41,18 +42,26 @@ class ProjectController extends Controller
     {
         // Ottengo i dati validati dal form
         $form_data = $request->validated();
-
+    
+        // Creo un nuovo progetto
+        $project = new Project();
+    
+        // Controllo se è stata caricata un'immagine e la salvo
+        if ($request->hasFile('image')) {
+            $path = Storage::disk('public')->put('projects_image', $request->file('image'));
+            $form_data['image'] = $path;
+        }
+    
         // Genero lo slug usando il metodo generateSlug dal modello Project
         $form_data['slug'] = Project::generateslug($form_data['title']);
-
-        // Creo un nuovo progetto e lo salvo
-        $project = new Project();
+    
+        // Riempio il modello Project con i dati e lo salvo
         $project->fill($form_data);
         $project->save();
-
+    
         // Reindirizzo alla pagina dei progetti
         return redirect()->route('admin.projects.index');
-    }
+    }       
 
     /**
      * Display the specified resource.

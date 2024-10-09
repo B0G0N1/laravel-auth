@@ -16,6 +16,7 @@ class Project extends Model
         'description',
         'url',
         'slug',
+        'image',
     ];
 
     // Genera uno slug a partire dal titolo
