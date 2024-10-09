@@ -96,16 +96,28 @@ class ProjectController extends Controller
     {
         // Ottengo i dati validati dal form
         $form_data = $request->validated();
-
-        // Genero lo slug se necessario
+    
+        // Controllo se è stata caricata una nuova immagine
+        if ($request->hasFile('image')) {
+            // Se il progetto ha già un'immagine, la elimino per evitare file inutili
+            if ($project->image) {
+                Storage::disk('public')->delete($project->image);
+            }
+    
+            // Salvo la nuova immagine e aggiorno il percorso
+            $path = Storage::disk('public')->put('projects_image', $request->file('image'));
+            $form_data['image'] = $path;
+        }
+    
+        // Genero lo slug usando il metodo generateSlug dal modello Project
         $form_data['slug'] = Project::generateslug($form_data['title']);
-
+    
         // Aggiorno il progetto con i nuovi dati
         $project->update($form_data);
-
-        // Reindirizzo alla pagina dei progetti
-        return redirect()->route('admin.projects.index');
-    }
+    
+        // Reindirizzo alla pagina show del progetto aggiornato
+        return redirect()->route('admin.projects.show', $project->id);
+    }       
 
     /**
      * Remove the specified resource from storage.
