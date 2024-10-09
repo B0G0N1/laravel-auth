@@ -7,7 +7,17 @@
                 <div class="card shadow-sm mb-4">
                     <div class="card-header bg-dark text-white d-flex align-items-center justify-content-between">
                         <h2 class="mb-0">{{ $project->title }}</h2>
-                        <a href="{{ route('admin.projects.index') }}" class="btn btn-light">Back to Projects</a>
+                        <div class="d-flex">
+                            <!-- Pulsante per eliminare il progetto -->
+                            <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST"
+                                onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger me-2">Elimina Progetto</button>
+                            </form>
+
+                            <a href="{{ route('admin.projects.index') }}" class="btn btn-light">Back to Projects</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <p><strong>Slug:</strong> {{ $project->slug }}</p>
