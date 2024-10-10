@@ -18,24 +18,28 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th>Anteprima</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>URL</th>
                         <th>Slug</th>
-                        <th>Strumenti</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($projects as $project)
                         <tr>
-                            <td>{{ $project->id }}</td>
+                            <td>
+                                <img src="{{ $project->image ? asset('storage/' . $project->image) : 'https://placehold.co/600x400?text=Immagine+copertina' }}"
+                                    alt="{{ $project->title }}" class="img-fluid"
+                                    style="width: 80px; height: 80px; object-fit: cover;">
+                            </td>
                             <td>{{ $project->title }}</td>
                             <td>{{ $project->description }}</td>
                             <td>{{ $project->url }}</td>
                             <td>{{ $project->slug }}</td>
                             <td>
-                                <div class="d-flex gap-1">
+                                <div class="d-flex flex-column gap-1">
                                     <!-- Pulsante per visualizzare il progetto -->
                                     <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
                                         class="btn btn-sm btn-primary">

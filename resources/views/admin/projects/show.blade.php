@@ -5,19 +5,13 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="d-flex justify-content-between mb-3">
-                    <div>
-                        <!-- Form per eliminare il progetto con conferma -->
-                        <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline"
-                            onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Elimina Progetto</button>
-                        </form>
-
-                        <!-- Pulsante per modificare il progetto -->
-                        <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning">Modifica
-                            Progetto</a>
-                    </div>
+                    <!-- Form per eliminare il progetto con conferma -->
+                    <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST"
+                        onsubmit="return confirm('Sei sicuro di voler eliminare questo progetto?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Elimina Progetto</button>
+                    </form>
 
                     <!-- Link per tornare alla lista dei progetti -->
                     <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary">Back to Projects</a>

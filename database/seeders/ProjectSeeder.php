@@ -16,18 +16,17 @@ class ProjectSeeder extends Seeder
      */
     public function run()
     {
-
         $faker = Faker::create();
 
-        for ($i = 0; $i < 20; $i++) {
-
+        for ($i = 0; $i < 30; $i++) {
             $title = $faker->sentence(3);
-            
+
             Project::create([
                 'title' => $title,
                 'description' => $faker->paragraph(5),
                 'url' => $faker->url(),
                 'slug' => Str::slug($title),
+                'image' => 'projects_image/OID5UncTBErRSQ84SERfq8jUbv47OteCf0HaYvTr.jpg',
             ]);
         }
     }
