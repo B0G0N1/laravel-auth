@@ -127,10 +127,15 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        // Controlla se il progetto ha un'immagine e la cancella
+        if ($project->image !== null) {
+            Storage::delete($project->image);
+        }
+    
         // Cancella il progetto
         $project->delete();
-
+    
         // Reindirizza alla lista dei progetti
         return redirect()->route('admin.projects.index');
-    }
+    }    
 }
